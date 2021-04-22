@@ -1,5 +1,5 @@
 # A-Challenge-Solution
-My solution in C++ to a hard coding challenge problem from the Amazon Hackerrank contest (after contest ended). 
+My solution in C++ to a hard coding challenge problem from the Amazon Hackerrank contest (after contest ended). Every single piece of code is written by me.
 
 Link to problem: https://www.hackerrank.com/contests/amazon/challenges/meeting-schedules/problem
 
@@ -37,6 +37,10 @@ I need to have logic for the case where if the start times are identical (first 
 minute).
 
 My solution does however handle cases where start time hours are same but minutes aren't. It also handles cases where there is not a single available time slot.
+
+_Runtime_
+
+The practical runtime of my solution is O(n^2) due to the selection sort algorithm. Selection sort is not ideal for a large input.
 
 
 
