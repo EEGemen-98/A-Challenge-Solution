@@ -19,11 +19,8 @@ containing all of the busy time slots in the input order.
 
 _Algorithm_
 
-The algorithm I came up with to compute available time slots was to sort the timeSlots vector in ascending order in terms of starting time. I decided to use insertion sort
-for mainly for simplicity reasons. The sorting algorithm sorts by start Time hour values, and if they are the same then it compares minutes. Once the vector is sorted, 
-my algorithm will subtract adjacent Times in order. The first subtraction is always going to be time 00:00 with the start Time in the first Slot (index 0). The following
-subtractions will be the start Time of the current Slot minus the end Time of the previous Slot until it reaches the last slot. The last slot end Time will be subtracted
-from 24:00. If the end Time is 00:00 the difference is overwritten to 0, since numerically 24 and 0 are different but in terms of time they are the same.
+The algorithm I came up with to compute available time slots was to sort the timeSlots vector in ascending order in terms of starting time. Since I wasn't actually competing
+but rather solving the problem for fun, I decided to save some time and work off a sorting algorithm I found online (https://github.com/edwardmartins/Sorting-Algorithms).I decided to use insertion sort mainly for simplicity reasons. The sorting algorithm sorts by start Time hour values, and if they are the same then it compares minutes. Once the vector is sorted, my algorithm will subtract adjacent Times in order. The first subtraction is always going to be time 00:00 with the start Time in the first Slot (index 0). The following subtractions will be the start Time of the current Slot minus the end Time of the previous Slot until it reaches the last slot. The last slot end Time will be subtracted from 24:00. If the end Time is 00:00 the difference is overwritten to 0, since numerically 24 and 0 are different but in terms of time they are the same.
 
 _Results_
 
@@ -35,7 +32,7 @@ _Needed improvements_
 Currently my solution passes the tests below and 6/9 tests. From testing I figured out that my solution does not handle cases where different slots have same start times
 but different end times. My sorting algorithm is not able to sort by end time quite yet, I tried to find an easy solution but it's going to take more work than I thought.
 I need to have logic for the case where if the start times are identical (first check hour then minute values) then I will need to compare their end times (first hour then
-minute).
+minute). I plan to first brute force the issue with my current sorting function then rewrite it _hopefully_ a more efficient way.
 
 My solution does however handle cases where start time hours are same but minutes aren't. It also handles cases where there is not a single available time slot.
 
