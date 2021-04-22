@@ -61,7 +61,7 @@ void printTimeSlots(Time start, Time end) {
     cout << strSlot << endl;
 }
 
-void difference(vector<Slot> v, int K) {
+void difference(vector<Slot>& v, int K) {
     struct Time prev = {0,0};
     int diff;
     for (Slot s : v) {
