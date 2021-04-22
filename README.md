@@ -40,6 +40,7 @@ _Runtime_
 
 The practical runtime of my solution is O(n^2) due to the insertion sort algorithm. Insertion sort is not ideal for a large input.
 
+![image](https://user-images.githubusercontent.com/54004471/115653091-61fa4680-a2e3-11eb-84e7-9389abd30040.png)
 
 
 ## Problem Description:
