@@ -1,5 +1,6 @@
 # A-Challenge-Solution
-My solution in C++ to a hard coding challenge problem from the Amazon Hackerrank contest (after contest ended). Every single piece of code is written by me.
+My solution in C++ to a hard coding challenge problem from the Amazon Hackerrank contest (after contest ended). The problem starts with only a blank main method, no given
+methods to fill out.
 
 Link to problem: https://www.hackerrank.com/contests/amazon/challenges/meeting-schedules/problem
 
@@ -18,7 +19,7 @@ containing all of the busy time slots in the input order.
 
 _Algorithm_
 
-The algorithm I came up with to compute available time slots was to sort the timeSlots vector in ascending order in terms of starting time. I decided to use selection sort
+The algorithm I came up with to compute available time slots was to sort the timeSlots vector in ascending order in terms of starting time. I decided to use insertion sort
 for mainly for simplicity reasons. The sorting algorithm sorts by start Time hour values, and if they are the same then it compares minutes. Once the vector is sorted, 
 my algorithm will subtract adjacent Times in order. The first subtraction is always going to be time 00:00 with the start Time in the first Slot (index 0). The following
 subtractions will be the start Time of the current Slot minus the end Time of the previous Slot until it reaches the last slot. The last slot end Time will be subtracted
@@ -40,7 +41,7 @@ My solution does however handle cases where start time hours are same but minute
 
 _Runtime_
 
-The practical runtime of my solution is O(n^2) due to the selection sort algorithm. Selection sort is not ideal for a large input.
+The practical runtime of my solution is O(n^2) due to the insertion sort algorithm. Insertion sort is not ideal for a large input.
 
 
 
