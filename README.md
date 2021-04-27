@@ -29,10 +29,7 @@ will print the correct time slots in the correct order as described below.
 
 _Needed improvements_
 
-Currently my solution passes the tests below and 6/9 tests. From testing I figured out that my solution does not handle cases where different slots have same start times
-but different end times. My sorting algorithm is not able to sort by end time quite yet, I tried to find an easy solution but it's going to take more work than I thought.
-I need to have logic for the case where if the start times are identical (first check hour then minute values) then I will need to compare their end times (first hour then
-minute). I plan to first brute force the issue with my current sorting function then rewrite it _hopefully_ in a more efficient way.
+Check change log below for updated status about this solution. The first uploaded version passed 6/9 tests however it lacked the ability to sort inputs with slots that have identical start times. The current version I'm working on has a (better?) sorting function that can sort by end times if start times are identical however it has a bug that causes infinite loops that needs to be fixed.
 
 My solution does however handle cases where start time hours are same but minutes aren't. It also handles cases where there is not a single available time slot.
 
