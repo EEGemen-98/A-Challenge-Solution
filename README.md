@@ -1,6 +1,6 @@
 # A-Challenge-Solution
 My solution in C++ to a hard coding challenge problem from the Amazon Hackerrank contest (after contest ended). The problem starts with only a blank main method, no given
-methods to fill out.
+methods to fill out. I am continuing to enhance my solution for my own learning benefit.
 
 Link to problem: https://www.hackerrank.com/contests/amazon/challenges/meeting-schedules/problem
 
