@@ -13,38 +13,99 @@ struct Time {
 struct Slot {
     Time start;
     Time end;
+    
+//     Slot& operator< (Const Slot) {
+    
+//     }
 };
 
-// sort ascending order by beginning time
-void sort(vector<Slot>& v, int n) {
-    struct Slot curr;
-    int pos;
 
-    for (int i = 1; i < n; i++) {
-        curr = v[i]; 
-        pos = i;
+
+// sort ascending order by beginning time
+// void sort(vector<Slot>& v, int n) {
+//     struct Slot curr;
+//     int pos;
+
+//     for (int i = 1; i < n; i++) {
+//         curr = v[i]; 
+//         pos = i;
         
-        while (pos > 0 && v[pos - 1].start.hr >= curr.start.hr) {
-            if (v[pos - 1].start.hr == curr.start.hr) {
-                if (v[pos - 1].start.min >= curr.start.min) {
-                    v[pos] = v[pos - 1]; 
-                    pos--;
+//         while (pos > 0 && v[pos - 1].start.hr >= curr.start.hr) {
+//             if (v[pos - 1].start.hr == curr.start.hr) {
+//                 if (v[pos - 1].start.min >= curr.start.min) {
+//                     v[pos] = v[pos - 1]; 
+//                     pos--;
+//                 }
+//                 else
+//                     break;
+//             }
+//             else {
+//                 v[pos] = v[pos - 1]; 
+//                 pos--;
+//             }
+//         }
+        
+//         if (pos != i)  
+//             v[pos] = curr; 
+//     }
+//     // for (auto t : v) {
+//     //     cout << t.start.hr << " " << t.start.min << " " << t.end.hr << " " << t.end.min << endl;
+//     // }
+        
+// }
+
+// insertion sort ascending order by start.hr > start.min > end.hr > end.min
+void sort(vector<Slot>& v, int size) {
+    int j;
+    Slot curr;
+    for (int i = 1; i < size; i++) {
+        j = i;
+        curr = v[i];
+        if (!(curr.start.hr == v[j - 1].start.hr && curr.start.min == v[j - 1].start.min)) {
+            while (j > 0 && curr.start.hr <= v[j - 1].start.hr) {   // while current start hr is <= previous
+                if (v[j - 1].start.hr == curr.start.hr) {   // if hrs are equal, compare the mins
+                    if (curr.start.min <= v[j - 1].start.min) {
+                        v[j] = v[j - 1];
+                        j--;
+                    }
+                    else 
+                        break;
                 }
-                else
-                    break;
-            }
-            else {
-                v[pos] = v[pos - 1]; 
-                pos--;
+                else {
+                    v[j] = v[j - 1];
+                    j--;
+                }
             }
         }
-        
-        if (pos != i)  
-            v[pos] = curr; 
+        else {
+            while (j > 0 && (curr.start.hr == v[j - 1].start.hr &&
+                curr.start.min == v[j - 1].start.min) && curr.end.hr <= v[j - 1].end.hr) {
+                if (v[j - 1].end.hr == curr.end.hr) {   // if hrs are equal, compare the mins
+                    if (curr.end.min <= v[j - 1].end.min) {
+                        v[j] = v[j - 1];
+                        j--;
+                    }
+                    else
+                        break;
+                }
+                else {
+                    v[j] = v[j - 1];
+                    j--;
+                }
+
+
+            }
+        }
+        if (j != i)
+            v[j] = curr;
+
     }
-    return;
+    // for (auto t : v) {
+    //     cout << t.start.hr << " " << t.start.min << " " << t.end.hr << " " << t.end.min << endl;
+    // }
 }
 
+// Print available time slots in correct manner
 void printTimeSlots(Time start, Time end) {
     string strStart, strEnd, strSlot;
     
@@ -107,7 +168,8 @@ int main() {
         struct Slot temp = {temp1, temp2};
         timeSlots.push_back(temp);
     }
-    sort(timeSlots, timeSlots.size());
+    
+    sort(timeSlots, M);
     difference(timeSlots, K);
     return 0;
 }
