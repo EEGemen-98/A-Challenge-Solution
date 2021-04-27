@@ -6,7 +6,7 @@ Link to problem: https://www.hackerrank.com/contests/amazon/challenges/meeting-s
 
 
 
-> _I recommend reading problem description before my thought process_
+> _I recommend reading problem description at the bottom of the page or link above before my thought process_
 
 My thought process to solve this problem was to find a way to efficiently store the time slots, design an algorithm that can compute the available time slots, 
 and a function that prints the available time slots in the required manner. 
@@ -38,10 +38,18 @@ My solution does however handle cases where start time hours are same but minute
 
 _Runtime & Space Complexity_
 
-The practical runtime of my solution is O(n^2) due to the insertion sort algorithm. Insertion sort is not ideal for a large input. The space complexity is O(n).
+The practical runtime of my solution is O(n^2) due to the insertion sort algorithm. Insertion sort is not ideal for a large input. The space complexity is O(n) because of the vector that stores the given time slots. I made sure to pass by reference to other functions so that this vector (which may be very large) is not copied.
 
 ![image](https://user-images.githubusercontent.com/54004471/115653091-61fa4680-a2e3-11eb-84e7-9389abd30040.png)
 
+## Change Log:
+(4/26/21)
+- Implemented logic to sort function to sort by end time if and only if the start times are identical
+- Program can now properly sort and extract available times with an input containing duplicated start times
+
+TO DO:
+- The new sorting function is causing infinite loops, some tests are timing out for unknown reason
+- simplify code using operator overloading
 
 ## Problem Description:
 Given M busy-time slots of N people, You need to print all the available time slots when all the N people can schedule a meeting for a duration of K minutes.
